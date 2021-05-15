@@ -12,7 +12,7 @@ def pdfSplit(path, npages):
         pdfOut.addPage(pdfIn.getPage(page))
 
         if (page + 1) % npages == 0:
-            outPath = 'Pages-' + str(page) + '-' + str(page + npages -1) + '_' + path[2:]
+            outPath = path[2:path.index('.',1)] + '_pages-' + str(page) + '-' + str(page + npages -1) + path[path.index('.',1):]
             print('write ' + outPath)
             with open(outPath, 'wb') as out:
                 pdfOut.write(out)
